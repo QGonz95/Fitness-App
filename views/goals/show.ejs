@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<%- include('../partials/header')%>
+		<div class="container">
+		<main>
+			<section>
+				<h2><%=goal.name%> Attributes:</h2>
+				<h4><%=goal.date%></h4>
+				<form action="/goals/<%=goal.id%>?_method=DELETE" method="post">
+                    <input type="submit" value="Delete Goal"/>
+                </form>
+			</section>          
+			<section>
+                <h2>Journal Entries attached:</h2>
+				<ul class="list-group">
+                    <% for(let x = 0; x < goal.entry.length; x++){ %>
+                        <li class="list-group-item"><a href="/entry/<%=goal.entry[x].id%>"><%=goal.entry[x].name%></a></li>
+                    <% } %>
+			</ul>
+			<a href="/entry/new" type="button" class="btn btn-secondary btn-lg btn-block">Log a new Journal Entry</a>
+
+			</section>
+            <section>
+                <h2>Exercises under This Goal:</h2>
+				
+                <ul class="list-group">
+                    <% for(let i = 0; i < goal.moves.length; i++){ %>
+                        <li class="list-group-item"><a href="/moves/<%=goal.moves[i].id%>"><%=goal.moves[i].name%></a></li>
+                    <% } %>
+            
+			</ul>
+			<a href="/moves/new" type="button" class="btn btn-secondary btn-lg btn-block">Create a new Exercise/Habit</a>
+
+            </section>
+
+		</main>
+		</div>
+	</body>
+</html>

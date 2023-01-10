@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<%- include('../partials/header')%>
+		<div class="container">
+			<h1>Edit <%=moves.name%>'s Info</h1>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/moves">Movements Index</a>
+					</li>
+				</ul>
+		<main>
+			<h2>Exercise Attributes:</h2>
+			<form action="/moves/<%=moves._id%>?_method=PUT" method="post">
+                <select name="goalId">
+                    <% for(let i = 0; i < goals.length; i++) { %>
+                        <option
+                            value="<%=goals[i]._id%>"
+                            <% if(goals[i]._id.toString() === moveGoal._id.toString()){ %>
+                                selected
+                            <% } %>
+                            >
+                            <%=goals[i].name%>
+                        </option>
+                    <% } %>
+                </select><br/>
+				<input type="text" name="name" value="<%=moves.name%>"/><br/>
+                <input type="text" name="type" value="<%=moves.type%>"/><br/>
+                <input type="number" name="sets" value="<%=moves.sets%>"/><br/>
+                <input type="number" name="reps" value="<%=moves.sets%>"/><br/>
+                <input type="number" name="time" value="<%=moves.sets%>"/><br/>
+                <input type="number" name="rest" value="<%=moves.sets%>"/><br/>
+				<textarea name="body"><%=moves.notes%></textarea><br/>
+				<input type="submit" value="Update Exercise"/>
+			</form>
+		</main>
+	</div>
+	</body>
+</html>

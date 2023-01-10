@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<header>
+		<%- include('../partials/header')%>
+		</header>
+		<div class="container">
+			<h1><%=move.name%></h1>
+            <medium>under: <a href="/goals/<%=goal.id%>"><%=goal.name%></a></medium>
+				<main>
+				<a  class="btn btn-outline-dark btn-sm" ref="/moves">return</a>
+					<dl class="row">
+						<dt style="font-size: larger;" class="col-sm-3">Name</dt>
+						<dd style="font-size: larger;" class="col-sm-9"><%=move.name%></dd>
+					  
+						<dt style="font-size: larger;" class="col-sm-3">Habit Type</dt>
+						<dd style="font-size: larger;" class="col-sm-9">
+						  <p><%=move.type%></p>
+						</dd>
+					  
+						<dt style="font-size: larger;" class="col-sm-3">Sets</dt>
+						<dd style="font-size: larger;" class="col-sm-9"><%=move.sets%></dd>
+					  <%if(move.reps){%>
+						<dt style="font-size: larger;" class="col-sm-3 text-truncate">Reps</dt>
+						<dd style="font-size: larger;" class="col-sm-9"><%=move.reps%></dd>
+						<%} else {%>
+							<dt style="font-size: larger;" class="col-sm-3 text-truncate">Time</dt>
+							<dd style="font-size: larger;" class="col-sm-9"><%=move.time%></dd>
+							<%}%>
+						<dt style="font-size: larger;" class="col-sm-3">Rest</dt>
+						<dd style="font-size: larger;" class="col-sm-9"><%=move.rest%></dd>
+						  <dl class="row">
+							<dt style="font-size: larger;" class="col-sm-4">Notes</dt>
+							<dd style="font-size: larger;"class="col-sm-4"><%=move.notes%></dd>
+						  </dl>
+						</dd>
+					  </dl>
+            <section>
+                <a href="/moves/<%=move._id%>/edit"  style="text-decoration:none; text-transform: capitalize;" class="btn btn-outline-dark" >Edit Habit</a>
+            </section>  
+			<form action="/moves/<%=move.id%>?_method=DELETE" method="post">
+				<input class="btn btn-outline-dark btn-sm" type="submit" value="Delete"/>
+			</form> 
+		</main>
+		</div>
+	</body>
+</html>

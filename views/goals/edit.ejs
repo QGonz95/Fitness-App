@@ -1,0 +1,27 @@
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<%- include('../partials/head') %>
+		</head>
+		<body>
+			<%- include('../partials/header')%>
+			<div class="container">
+			<h1>Edit <%=goal.name%>'s Info</h1>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/goals">Goals Index</a>
+					</li>
+				</ul>
+		<main>
+			<h2>Goals Attributes:</h2>
+			<form action="/goals/<%=goal._id%>?_method=PUT" method="post">
+				<input type="text" name="name" value="<%=goal.name%>"/><br/>
+				<input type="text" name="date" value="<%=goal.date%>"/><br/>
+				<input type="submit" value="Update Goal"/>
+			</form>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<%- include('../partials/head') %>
+		</head>
+		<body>
+			<%- include('../partials/header')%>
+			<div class="container">
+			<h1>Sign Up</h1>
+		<main>
+			<form action="/users" method="POST">
+				<input type="text" name="username" placeholder="Username"/>
+				<input type="text" name="password" placeholder="Password"/>
+				<input type="submit" value="Create Account"/>
+			</form>
+		</main>
+		</div>
+	</body>
+</html>

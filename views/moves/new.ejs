@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<header>
+		<%- include('../partials/header')%>
+		</header>
+		<main>
+			<div class="container">
+			<form class='form' action="/moves" method="post">
+                <select name="goalId">
+                    <% for(let i = 0; i < goals.length; i++) { %>
+                        <option value="<%=goals[i]._id%>"><%=goals[i].name%></option>
+                    <% } %>
+                </select><br/>
+				<input type="text" name="name" placeholder="Exercise"/><br/>
+                <input type="text" name="type" placeholder="Exercise Type"/><br/>
+                <input type="number" name="sets" placeholder="# of Sets"/><br/>
+                <input type="number" name="reps" placeholder="# of Reps"/><br/>
+                <input type="number" name="time" placeholder="Length of Set"/><br/>
+                <input type="number" name="rest" placeholder="Rest (seconds)"/><br/>
+				<textarea name="notes" placeholder=""></textarea><br/>
+				<input type="submit" value="Add Movement"/>
+			</form>
+		</div>
+		</main>
+	</body>
+</html>
+

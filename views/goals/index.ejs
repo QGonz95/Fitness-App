@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<%- include('../partials/header')%>
+	<div class="container">
+		<main style="margin-top: 30px">
+				<h3 style="text-align: center;">"Shoot for the moon. Even if you miss, you'll land among the stars."</h3>
+				<p style="text-align: end;">~Les Brown</p>
+
+			<h2 class="h2">They're in Reach</h2>
+				<% for(let i = 0; i < goals.length; i++){ %>
+						<h3><a style="text-decoration: underline; color: black" href="/goals/<%=goals[i]._id%>"><%=goals[i].name%></a></h3>
+						<form action="/goals/<%=goals[i].id%>?_method=DELETE" method="post">
+							<input type="submit" value="x"/>
+						</form>
+				<% } %>
+		</main>
+		<div style="margin-top: 30px">
+			<h5><a class="btn btn-dark" href="/goals/new">Create a new Goal</a></h5>
+				<h5><a class="btn btn-dark" href="/entry/new">Log a new Journal Entry</a></h5>
+		</div>
+	</div>
+	</body>
+</html>

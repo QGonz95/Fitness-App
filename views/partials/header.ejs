@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <div class="navbar-container container">
+    <input type="checkbox" name="" id="">
+    <div class="hamburger-lines">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+    </div>
+    <ul class="menu-items">
+      <li><a href="/">Home</a></li>
+      <li><a href="/goals">Goals Set</a></li>
+      <li><a href="/moves">Exercises Created</a></li>
+      <li><a href="/entry"> Journal Log</a></li>
+      <% if(currentUser) {%>
+        <li>  <p style="color: white; "><%= currentUser.username %>!!</p></li>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <li> <input type="submit" value="Log Out" class="btn-small red" /></li>
+      </form>
+        <% } else { %>
+          <li> <a class="btn btn-outline-light" href="/users/new">Sign Up</a></li>
+          <li><a class="btn btn-outline-light" href="/sessions/new">Log In</a></li>
+      <% } %>
+    </ul>
+    <h1 class="logo">Conquer</h1>
+</div>
+</nav>
+
+
+  

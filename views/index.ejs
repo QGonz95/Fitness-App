@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('./partials/head') %>
+		
+	</head>
+	<body>
+		<header>
+			<nav class="navbar">
+				<div class="navbar-container container">
+				  <input type="checkbox" name="" id="">
+				  <div class="hamburger-lines">
+					  <span class="line line1"></span>
+					  <span class="line line2"></span>
+					  <span class="line line3"></span>
+				  </div>
+				  <ul class="menu-items">
+					<li><a href="/">Home</a></li>
+					<li><a href="/goals">Goals Set</a></li>
+					<li><a href="/moves">Exercises Created</a></li>
+					<li><a href="/entry"> Journal Log</a></li>
+					</ul>
+    <h1 class="logo">Conquer</h1>
+			</nav>
+		</header>
+		<main class="container-fluid"id="About">
+            <div style="text-align: center; margin:30px;">
+                <h1 style="margin-top:20px;" >Observe</h1>
+				<h4>If you are not happy with your realty, set yourself up for the one you desire and get ready to </h4>
+                <h1 style="margin-top:20px;">Endure</h1>
+				<h4>whats coming to you. Whether you set course to make a change or choose to live a life you are not happy with, you will be challenged. So why not</h4>
+                <h1 style="margin-top:20px">Conquer</h1>
+				<h4>Life and all of its blessings? The choice is Yours. </h4>
+
+				<% if(currentUser) {%>
+					<h2 style="margin-top:60px">Welcome <%= currentUser.username %></h2>
+					<form action="/sessions?_method=DELETE" method="POST">
+					  <input type="submit" value="Log Out" class="btn-small red" />
+					</form>
+					  <% } else { %>
+					<form action="/users" method="POST">
+						<input type="text" name="username" placeholder="Username"/>
+						<input type="text" name="password" placeholder="Password"/>
+						<input class="btn btn-dark" type="submit" value="Sign Up"/>
+					</form>
+					<form action="/sessions" method="POST">
+						<input type="text" name="username" placeholder="Username"/>
+						<input type="text" name="password" placeholder="Password"/>
+						<input class="btn btn-dark" type="submit" value="Sign In"/>
+					</form>
+					<% } %>
+				  </div>
+				</div>
+            </div>
+        </main>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<%- include('../partials/head') %>
+		</head>
+		<body>
+			<%- include('../partials/header')%>
+			<div class="container">
+			<h1>Create a Goal</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/goals">Goals Index</a>
+					</li>
+				</ul>
+			</nav>
+		<main>
+			<form action="/goals" method="POST">
+				<input type="text" name="name" placeholder="New Goal"/>
+				<input type="text" name="date" placeholder="Date Created"/>
+				<input type="submit" value="Create"/>
+			</form>
+		</main>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<header>
+		<%- include('../partials/header')%>
+		</header>
+		<div class="container">
+			<h1 style="margin-top: 30px; text-align: center;" ><%=entry.name%></h1>
+            <h4 style="text-align: end;">attached to: <a href="/goals/<%=goal.id%>"><%=goal.name%></a></h4>
+		<main>
+            <div>
+						<h5 style="text-align: end;">Date: <%=entry.date%></h5>
+						<h3 style='margin: 10%; text-align: center;'><%=entry.log%></h3>
+                <a style="margin-top: 30px;" href="/entry/<%=entry._id%>/edit"  style="text-decoration:none; text-transform: capitalize;" class="btn btn-dark btn-sm" >Edit Entry</a>
+			<form action="/entry/<%=entry.id%>?_method=DELETE" method="post">
+				<input type="submit" value="Delete"/>
+			</form> 
+        </div>
+		</main>
+		</div>
+	</body>
+</html>

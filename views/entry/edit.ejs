@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+    <body>
+        <%- include('../partials/header')%>
+        <div class="container">
+        <h1><%=entry.name%></h1>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/entry">Journal Entries</a>
+                </li>
+            </ul>
+    <main>
+        <form action="/entry/<%=entry._id%>?_method=PUT" method="post">
+            <input type="text" name="name" value="<%=entry.name%>"/><br/>
+            <input type="text" name="date" value="<%=entry.date%>"/><br/>
+            <input type="text" name="log" value="<%=entry.log%>"/><br/>
+            <input type="submit" value="Update Journal Entry"/>
+        </form>
+    </main>
+</body>
+</html>

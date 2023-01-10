@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<%- include('../partials/header')%>
+	<div class="container">
+		<h3 style="margin-top: 20px">"Running water never goes stale so you gotta just keep on flowing”</h3>
+		<p>~Bruce Lee</p>
+						<a class="btn btn-dark" href="/moves/new">Create a new Movement</a>
+        <main style="margin-top: 30px">
+            <h2>List of Movements</h2>
+			<div class="list-group">
+                <% for(let i = 0; i < moves.length; i++){ %>
+                       <h2><a class="badge badge-dark" href="/moves/<%=moves[i]._id%>"><%=moves[i].name%></a></h2>
+					   <form action="/moves/<%=moves[i].id%>?_method=DELETE" method="post">
+						<input class="btn btn-outline-dark btn-sm" type="submit" value="Delete"/>
+					</form> 
+                <% } %>
+			</div>
+        </main>
+		</div>
+	</body>
+</html>
